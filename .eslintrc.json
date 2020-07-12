@@ -4,12 +4,7 @@
 		"es2020": true,
 		"node": true
 	},
-	"extends": [
-		"airbnb",
-		"prettier",
-		"plugin:node/recommended",
-		"plugin:react/recommended"
-	],
+	"extends": ["airbnb", "prettier", "plugin:react/recommended"],
 	"plugins": ["prettier", "react"],
 	"parserOptions": {
 		"ecmaFeatures": {
