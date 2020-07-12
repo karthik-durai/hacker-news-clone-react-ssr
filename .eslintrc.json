@@ -24,7 +24,8 @@
 		"react/jsx-indent": ["error", "tab"],
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"react/jsx-indent-props": [2, "tab"],
-		"react/jsx-one-expression-per-line": "off"
+		"react/jsx-one-expression-per-line": "off",
+		"react/jsx-closing-bracket-location": [1, "after-props"]
 	},
 	"overrides": [{ "files": ["*.test.js"], "rules": { "no-undef": "off" } }]
 }
