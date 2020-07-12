@@ -4,7 +4,12 @@
 		"es2020": true,
 		"node": true
 	},
-	"extends": ["airbnb", "prettier", "plugin:react/recommended"],
+	"extends": [
+		"airbnb",
+		"prettier",
+		"plugin:react/recommended",
+		"plugin:prettier/recommended"
+	],
 	"plugins": ["prettier", "react"],
 	"parserOptions": {
 		"ecmaFeatures": {
@@ -17,6 +22,8 @@
 		"prettier/prettier": "error",
 		"indent": ["error", "tab"],
 		"react/jsx-indent": ["error", "tab"],
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/jsx-indent-props": [2, "tab"],
+		"react/jsx-one-expression-per-line": "off"
 	}
 }
