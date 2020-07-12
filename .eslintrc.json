@@ -7,8 +7,8 @@
 	"extends": [
 		"airbnb",
 		"prettier",
-		"plugin:node/recommended",
-		"plugin:react/recommended"
+		"plugin:react/recommended",
+		"plugin:prettier/recommended"
 	],
 	"plugins": ["prettier", "react"],
 	"parserOptions": {
@@ -22,6 +22,9 @@
 		"prettier/prettier": "error",
 		"indent": ["error", "tab"],
 		"react/jsx-indent": ["error", "tab"],
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
-	}
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/jsx-indent-props": [2, "tab"],
+		"react/jsx-one-expression-per-line": "off"
+	},
+	"overrides": [{ "files": ["*.test.js"], "rules": { "no-undef": "off" } }]
 }
