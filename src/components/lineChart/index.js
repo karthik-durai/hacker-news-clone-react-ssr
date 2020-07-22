@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LineChart } from 'react-chartkick'
 import 'chart.js'
+import './styles.css'
 
 function Chart({ plotData = [] }) {
 	return (

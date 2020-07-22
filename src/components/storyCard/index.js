@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import './styles.css'
 
 dayjs.extend(relativeTime)
 
@@ -19,7 +20,7 @@ function StoryCard({ data, onHideClick, onVoteClick }) {
 	return (
 		<a href={data.url} target="_blank" rel="noreferrer">
 			<div>
-				<p>{data.title}</p>
+				<p className="title">{data.title}</p>
 				<p>Votes: {data.vote}</p>
 				<p>URL: {getHostName(data.url)}</p>
 				<p>Author: {data.author}</p>
