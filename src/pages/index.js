@@ -4,11 +4,13 @@ import { LineChart, StoryCard } from '../components'
 import fetchStories from '../network'
 import './styles.css'
 
-function Index(props) {
+function Index({ staticContext = {}, history }) {
+	const { initialData = {} } = staticContext
+	const { hits = [] } = initialData
 	const [pageNumber, setPageNumber] = useState(0)
 	const [maxPages, setMaxPages] = useState(1)
-	const [stories, setStories] = useState([])
-	const [filteredStories, setFilteredStories] = useState([])
+	const [stories, setStories] = useState(hits || [])
+	const [filteredStories, setFilteredStories] = useState(hits || [])
 	const [buttonsEnabledState, setButtonsEnabledState] = useState({
 		Prev: false,
 		Next: false,
@@ -19,12 +21,12 @@ function Index(props) {
 		try {
 			const response = await fetchStories(pageNum)
 			const { data } = response
-			const { nbPages, page, hits } = data
+			const { nbPages, page, hits: storyList } = data
 			setPageNumber(page)
 			setMaxPages(nbPages)
-			setStories(hits)
+			setStories(storyList)
 		} catch (e) {
-			console.log(e, 'getStoriesList')
+			setStories([])
 		}
 	}
 
@@ -35,11 +37,9 @@ function Index(props) {
 	const appendVoteData = (storyList, userFavData) => {
 		return storyList.map(story => {
 			if (userFavData[story.objectID]) {
-				story.vote = userFavData[story.objectID].vote || 0
-			} else {
-				story.vote = 0
+				return { ...story, vote: userFavData[story.objectID].vote || 0 }
 			}
-			return story
+			return { ...story, vote: 0 }
 		})
 	}
 
@@ -55,10 +55,10 @@ function Index(props) {
 
 	useEffect(() => {
 		const { __initialData__ } = window
-		const { nbPages, page, hits } = __initialData__
+		const { nbPages, page, hits: storyList } = __initialData__
 		setPageNumber(page)
 		setMaxPages(nbPages)
-		setStories(hits)
+		setStories(storyList)
 	}, [])
 
 	useEffect(() => {
@@ -95,7 +95,7 @@ function Index(props) {
 		const newPageNumber = pageNumber + numToAdd
 		setPageNumber(newPageNumber)
 		getStoriesList(newPageNumber)
-		props.history.push(`/?page=${newPageNumber + 1}`)
+		history.push(`/?page=${newPageNumber + 1}`)
 	}
 
 	const onHideClick = data => {
@@ -166,6 +166,7 @@ Index.requestInitialData = async pageNum => {
 }
 
 Index.propTypes = {
+	staticContext: PropTypes.objectOf(PropTypes.object).isRequired,
 	history: PropTypes.objectOf(PropTypes.object).isRequired,
 }
 
