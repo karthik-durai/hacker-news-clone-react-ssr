@@ -5,6 +5,7 @@ import ReactDOMServer from 'react-dom/server'
 import { StaticRouter, matchPath } from 'react-router-dom'
 import routes from './src/routes'
 import App from './src/App'
+import IndexHtml from './public/index.html'
 
 const PORT = process.env.PORT || 8000
 
