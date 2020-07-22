@@ -1,7 +1,6 @@
 const path = require('path')
 
 module.exports = {
-	target: 'node',
 	entry: './src/index.js',
 	output: {
 		filename: 'client-bundle.js',
@@ -18,7 +17,17 @@ module.exports = {
 					presets: ['@babel/react'],
 				},
 			},
-			{ test: /\.css$/, use: 'css-loader' },
+			{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					{ loader: 'css-loader', options: { importLoaders: 1 } },
+				],
+			},
+			{
+				test: /\.html$/i,
+				loader: 'html-loader',
+			},
 		],
 	},
 }

@@ -19,7 +19,14 @@ module.exports = {
 					presets: ['@babel/react'],
 				},
 			},
-			{ test: /\.css$/, use: 'css-loader' },
+			{
+				test: /\.css$/,
+				use: [{ loader: 'css-loader', options: { importLoaders: 1 } }],
+			},
+			{
+				test: /\.html$/i,
+				loader: 'html-loader',
+			},
 		],
 	},
 	externals: [webpackNodeExternals()],
