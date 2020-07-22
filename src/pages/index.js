@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { LineChart, StoryCard } from '../components'
 import fetchStories from '../network'
+import './styles.css'
 
 function Index(props) {
 	const [pageNumber, setPageNumber] = useState(0)
