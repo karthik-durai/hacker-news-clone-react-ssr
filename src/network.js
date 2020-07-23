@@ -6,7 +6,7 @@ const networkInstance = axios.create({
 })
 
 function fetchStories(page = 0) {
-	const url = `/search?tags=front_page&page=${page}`
+	const url = `/search?tags=front_page&page=${page}&numericFilters=num_comments>0`
 	return networkInstance.get(url)
 }
 
