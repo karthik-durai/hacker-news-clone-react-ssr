@@ -12,6 +12,14 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+				loader: 'file-loader',
+				options: {
+					name: 'public/media/[name].[ext]',
+					publicPath: url => url.replace(/public/, ''),
+				},
+			},
+			{
 				test: /\.js$/,
 				loader: 'babel-loader',
 				exclude: '/node_modules/',
