@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import './styles.css'
+import upvoteArrowIcon from '../../../public/upvote-arrow.svg'
 
 dayjs.extend(relativeTime)
 
