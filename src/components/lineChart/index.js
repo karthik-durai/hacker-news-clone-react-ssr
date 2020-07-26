@@ -6,20 +6,14 @@ import './styles.css'
 
 function Chart({ plotData = [] }) {
 	return (
-		<div
-			style={{
-				width: '100%',
-				height: '300px',
-			}}>
-			<LineChart
-				data={plotData}
-				discrete
-				xtitle="ID"
-				ytitle="Votes"
-				curve={false}
-				messages={{ empty: 'No data' }}
-			/>
-		</div>
+		<LineChart
+			data={plotData}
+			discrete
+			xtitle="ID"
+			ytitle="Votes"
+			curve={false}
+			messages={{ empty: 'No data' }}
+		/>
 	)
 }
 
