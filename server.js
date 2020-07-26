@@ -17,10 +17,13 @@ server.listen(PORT, () => console.log(`Server started and running at ${PORT}`))
 
 server.get('/', async (req, res) => {
 	const { page } = req.query
-	const pageNum = page ? page - 1 : 0
+	const pageNum = page ? Number(page) : 1
+	if (Number.isNaN(pageNum) || pageNum < 1) {
+		res.status(400).send('Invalid page number')
+	}
 	const currentRoute = routes.find(route => matchPath(req.url, route))
 	const { requestInitialData } = currentRoute.component
-	const data = await requestInitialData(pageNum)
+	const data = await requestInitialData(pageNum - 1)
 	const context = { initialData: data }
 	const serializedData = serializeJavascript(data)
 	const content = ReactDOMServer.renderToString(
@@ -39,5 +42,5 @@ server.get('/', async (req, res) => {
 })
 
 server.get('*', (req, res) => {
-	res.send('Not found')
+	res.status(404).send('Not found')
 })
