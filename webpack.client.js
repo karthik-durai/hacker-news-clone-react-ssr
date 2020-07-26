@@ -14,6 +14,7 @@ module.exports = {
 				loader: 'file-loader',
 				options: {
 					name: '/media/[name].[ext]',
+					publicPath: url => url.replace(/public/, ''),
 				},
 			},
 			{
