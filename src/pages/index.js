@@ -104,7 +104,10 @@ function Index({ staticContext = {}, history }) {
 		storyData.hidden = true
 		userFavoritesData[data.objectID] = storyData
 		localStorage.setItem('userFavoritesData', JSON.stringify(userFavoritesData))
-		const filteredStoriesNew = removeHiddenStories(stories, userFavoritesData)
+		const filteredStoriesNew = appendVoteData(
+			removeHiddenStories(stories, userFavoritesData),
+			userFavoritesData
+		)
 		setFilteredStories(filteredStoriesNew)
 	}
 
