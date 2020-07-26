@@ -1,0 +1,159 @@
+.storycard {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	padding: 10px 0px;
+	width: 100%;
+	background-color: #ffffff;
+	color: #212529;
+}
+
+.storycard:hover {
+	transform: scale(1.01, 1);
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.value-label {
+	display: none;
+}
+
+.story-commentscount {
+	width: 70px;
+	text-align: center;
+	grid-area: commentscount;
+}
+
+.story-votescount {
+	width: 70px;
+	text-align: center;
+	grid-area: votesscount;
+}
+
+.story-voteCTA {
+	width: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-area: votecta;
+}
+
+.story-voteCTA > img {
+	height: 20px;
+	width: 20px;
+}
+
+.storycard-title {
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 14px;
+	grid-area: title;
+}
+
+.storycard-author {
+	margin-right: 10px;
+	font-size: 10px;
+	font-weight: 300;
+	grid-area: author;
+}
+
+.storycard-time {
+	margin-right: 10px;
+	font-size: 10px;
+	font-weight: 300;
+	color: #6c757d;
+	grid-area: time;
+}
+
+.storycard-url {
+	margin-right: 10px;
+	font-size: 10px;
+	font-weight: 300;
+	color: #6c757d;
+	grid-area: url;
+}
+
+.storycard-hideCTA {
+	outline: none;
+	border: none;
+	background-color: #ffffff;
+	font-size: 10px;
+	font-weight: 300;
+	grid-area: hidecta;
+}
+
+@media screen and (max-width: 1440px) {
+	.storycard > * {
+		margin: 0px;
+	}
+	.storycard-title,
+	.story-commentscount,
+	.story-votescount {
+		font-size: 12px;
+	}
+	.storycard-title {
+		width: 400px;
+	}
+	.storycard-url,
+	.storycard-author,
+	.storycard-time,
+	.storycard-title {
+		margin: 0px 5px;
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.storycard-title {
+		width: 300px;
+	}
+}
+
+@media screen and (max-width: 1120px) {
+	.storycard-title {
+		width: 200px;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.storycard {
+		border: 1px solid #6c757d;
+		border-radius: 5px;
+		display: grid;
+		justify-content: space-between;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 10px 0px;
+		grid-template-areas:
+			'title title url'
+			'commentscount votesscount votecta'
+			'author time hidecta';
+	}
+	.storycard > * {
+		justify-self: auto;
+		width: auto;
+		text-align: center;
+		padding: 0px 10px;
+		margin: 0px;
+	}
+	.storycard-title {
+		margin: 0px;
+		text-align: left;
+	}
+	.story-commentscount,
+	.storycard-url,
+	.storycard-author {
+		text-align: left;
+	}
+	.story-voteCTA {
+		display: flex;
+		justify-content: flex-end;
+	}
+	.storycard-hideCTA,
+	.storycard-url {
+		text-align: right;
+	}
+	.value-label {
+		display: initial;
+	}
+}

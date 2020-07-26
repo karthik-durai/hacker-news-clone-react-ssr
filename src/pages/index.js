@@ -129,8 +129,14 @@ function Index({ staticContext = {}, history }) {
 	}
 
 	return (
-		<div>
-			<div>
+		<div className="page">
+			<div className="page-stories">
+				<div className="page-stories_header">
+					<span>Comments</span>
+					<span>Votes</span>
+					<span>UpVote</span>
+					<span>News Details</span>
+				</div>
 				{filteredStories.map(story => (
 					<StoryCard
 						key={story.objectID}
@@ -140,21 +146,25 @@ function Index({ staticContext = {}, history }) {
 					/>
 				))}
 			</div>
-			<div>
+			<div className="page-stories_nav">
 				<button
+					className="cta-btn"
 					type="button"
 					onClick={() => onButtonClick('Prev')}
 					disabled={!buttonsEnabledState.Prev}>
-					Prev
+					Previous
 				</button>
 				<button
+					className="cta-btn"
 					type="button"
 					onClick={() => onButtonClick('Next')}
 					disabled={!buttonsEnabledState.Next}>
 					Next
 				</button>
 			</div>
-			<LineChart plotData={plotData} />
+			<div className="page-chart">
+				<LineChart plotData={plotData} />
+			</div>
 		</div>
 	)
 }

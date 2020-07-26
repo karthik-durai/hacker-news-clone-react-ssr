@@ -9,3 +9,15 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
+
+.cta-btn {
+	outline: none;
+	border: none;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
