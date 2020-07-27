@@ -26,7 +26,7 @@
 		"server:builddev": "webpack --config webpack.server.js --watch --mode development",
 		"server:rundev": "nodemon --watch build --exec node build/server-bundle.js",
 		"app:builddev": "run-p server:builddev client:builddev",
-		"app:startdev": "run-s app:builddev server:rundev"
+		"app:startdev": "run-p app:builddev server:rundev"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
