@@ -16,14 +16,17 @@
 		"serialize-javascript": "^4.0.0"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"start": "node build/server-bundle.js",
+		"build": "run-p server:buildprod client:buildprod",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"client:build": "webpack --config webpack.client.js --watch",
-		"server:build": "webpack --config webpack.server.js --watch",
-		"server:run": "nodemon --watch build --exec node build/server-bundle.js",
-		"app:start": "run-p client:build server:*"
+		"client:buildprod": "webpack --config webpack.client.js --watch --mode production",
+		"server:buildprod": "webpack --config webpack.server.js --watch --mode production",
+		"client:builddev": "webpack --config webpack.client.js --watch --mode development",
+		"server:builddev": "webpack --config webpack.server.js --watch --mode development",
+		"server:rundev": "nodemon --watch build --exec node build/server-bundle.js",
+		"app:builddev": "run-p server:builddev client:builddev",
+		"app:startdev": "run-s app:builddev server:rundev"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
