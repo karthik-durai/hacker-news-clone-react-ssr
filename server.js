@@ -37,7 +37,10 @@ server.get('/', async (req, res) => {
 	<script>window.__initialData__=${serializedData}</script>
 	<script src="client-bundle.js" defer></script>
 	`
-	const html = IndexHtml.replace('<div id=root></div>', contentWithInitialData)
+	const html = IndexHtml.replace(
+		'<div id="root"></div>',
+		contentWithInitialData
+	)
 	res.send(html)
 })
 
