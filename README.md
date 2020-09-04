@@ -5,3 +5,5 @@ Used **renderToString** method from **ReactDOMServer** package.
 On request, the html is generated and passed to renderToString method and the returned value is sent as the response from the server.
 
 Used **hyderate** method from **ReactDOM** package to mount the Server side rendered HTML.
+
+Link: https://desolate-oasis-54338.herokuapp.com/
